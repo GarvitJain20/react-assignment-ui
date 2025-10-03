@@ -1,0 +1,18 @@
+{
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    },
+    {
+      "src": "storybook-static/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    { "src": "/storybook/(.*)", "dest": "/storybook-static/$1" }
+  ]
+}
